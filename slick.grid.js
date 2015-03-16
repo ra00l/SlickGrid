@@ -3069,7 +3069,10 @@ if (typeof Slick === "undefined") {
         activePosX = pos.posX;
         return true;
       } else {
-        setActiveCellInternal(getCellNode(activeRow, activeCell));
+          //if grid has 1 row, the existing cell is re-selecte/re-edited 
+          var newActiveCell = getCellNode(activeRow, activeCell);
+          if(newActiveCell != activeCellNode)
+            setActiveCellInternal(newActiveCell);
         return false;
       }
     }
